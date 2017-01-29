@@ -1,0 +1,12 @@
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\bin\Debug\SequencerDemo.exe
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\bin\Debug\SequencerDemo.pdb
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\bin\Debug\Sanford.Multimedia.Midi.dll
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\bin\Debug\Sanford.Multimedia.Midi.pdb
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\bin\Debug\Sanford.Multimedia.Midi.xml
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\obj\Debug\SequencerDemo.csprojResolveAssemblyReference.cache
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\obj\Debug\SequencerDemo.AboutDialog.resources
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\obj\Debug\SequencerDemo.Form1.resources
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\obj\Debug\SequencerDemo.Properties.Resources.resources
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\obj\Debug\SequencerDemo.csproj.GenerateResource.Cache
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\obj\Debug\SequencerDemo.exe
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Demo\SequencerDemo\obj\Debug\SequencerDemo.pdb

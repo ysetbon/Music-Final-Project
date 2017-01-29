@@ -1,0 +1,11 @@
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Source\bin\Debug\Sanford.Multimedia.Midi.XML
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Source\bin\Debug\Sanford.Multimedia.Midi.dll
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Source\bin\Debug\Sanford.Multimedia.Midi.pdb
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Source\obj\Debug\Sanford.Multimedia.Midi.csprojResolveAssemblyReference.cache
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Source\obj\Debug\Sanford.Multimedia.Midi.UI.DeviceDialog.resources
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Source\obj\Debug\Sanford.Multimedia.Midi.UI.InputDeviceDialog.resources
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Source\obj\Debug\Sanford.Multimedia.Midi.UI.OutputDeviceDialog.resources
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Source\obj\Debug\Sanford.Multimedia.Midi.UI.PianoControlDialog.resources
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Source\obj\Debug\Sanford.Multimedia.Midi.csproj.GenerateResource.Cache
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Source\obj\Debug\Sanford.Multimedia.Midi.dll
+D:\Projects\Music Project\Sanford.Multimedia.Midi-master\Source\obj\Debug\Sanford.Multimedia.Midi.pdb
