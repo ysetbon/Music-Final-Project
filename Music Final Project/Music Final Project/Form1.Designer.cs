@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.CEG = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CurrentChord = new System.Windows.Forms.Label();
@@ -39,16 +38,6 @@
             this.SwitchChordTimer = new System.Windows.Forms.Timer(this.components);
             this.TillNextTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
-            // 
-            // CEG
-            // 
-            this.CEG.Location = new System.Drawing.Point(44, 370);
-            this.CEG.Name = "CEG";
-            this.CEG.Size = new System.Drawing.Size(126, 76);
-            this.CEG.TabIndex = 0;
-            this.CEG.Text = "CEG";
-            this.CEG.UseVisualStyleBackColor = true;
-            this.CEG.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -132,7 +121,6 @@
             this.Controls.Add(this.CurrentChord);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.CEG);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -142,7 +130,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button CEG;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label CurrentChord;
