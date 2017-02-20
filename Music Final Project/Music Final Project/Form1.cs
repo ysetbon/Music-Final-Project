@@ -28,12 +28,12 @@ namespace Music_Final_Project
             E = (64, 67, 71)
             D = (62, 66, 69)
             */
-        readonly List<Chord> m_ChordList = new List<Chord> { Chord.FromNotes(new Note[] { new Note(57), new Note(60), new Note(64)}), 
-                                                    Chord.FromNotes(new Note[] { new Note(59), new Note(62), new Note(66)}), 
-                                                    Chord.FromNotes(new Note[] { new Note(60), new Note(64), new Note(67)}), 
-                                                    Chord.FromNotes(new Note[] { new Note(59), new Note(62), new Note(67)}), 
-                                                    Chord.FromNotes(new Note[] { new Note(64), new Note(67), new Note(71)}), 
-                                                    Chord.FromNotes(new Note[] { new Note(62), new Note(66), new Note(69)})};
+        readonly List<ChordProxy> m_ChordList = new List<ChordProxy> { new ChordProxy(new Note[] { new Note(57), new Note(60), new Note(64)}), 
+                                                    new ChordProxy(new Note[] { new Note(59), new Note(62), new Note(66)}), 
+                                                    new ChordProxy(new Note[] { new Note(60), new Note(64), new Note(67)}), 
+                                                    new ChordProxy(new Note[] { new Note(59), new Note(62), new Note(67)}), 
+                                                    new ChordProxy(new Note[] { new Note(64), new Note(67), new Note(71)}), 
+                                                    new ChordProxy(new Note[] { new Note(62), new Note(66), new Note(69)})};
 
         //readonly List<string> m_ChordNames = new List<string> {"Am", "F", }
 

@@ -65,6 +65,7 @@
     <Compile Include="Scripts\ChordButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Scripts\ChordProxy.cs" />
     <Compile Include="Scripts\ChordToShow.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
