@@ -21,8 +21,6 @@ namespace Music_Final_Project.Scripts
                 RepresentedChord = Chord.FromNotes(i_Notes);
             }
             catch (Exception)
-            {}
-            finally
             {
                 RepresentedChord = null;
             }
