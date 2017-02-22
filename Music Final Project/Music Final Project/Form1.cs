@@ -39,6 +39,8 @@ namespace Music_Final_Project
 
         public Form1()
         {
+            InitializeComponent();
+
             // 
             // Chord Buttons
             // 
@@ -53,10 +55,8 @@ namespace Music_Final_Project
                 newButton.UseVisualStyleBackColor = true;
                 newButton.MouseDown += (sender, EventArgs) => { ChordKeyDown(sender, EventArgs, newButton.ButtonChord); };
                 newButton.MouseUp += (sender, EventArgs) => { ChordKeyUp(sender, EventArgs, newButton.ButtonChord); };
-                this.Controls.Add(newButton);
+                this.panel1.Controls.Add(newButton);
             }
-
-            InitializeComponent();
         }
 
         private void LoadQueue(Queue<ChordToShow> i_ChordQueue)
@@ -158,6 +158,11 @@ namespace Music_Final_Project
             {
                 outDevice.Send(new ChannelMessage(ChannelCommand.NoteOff, 0, notes[i].Value, 0));
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
