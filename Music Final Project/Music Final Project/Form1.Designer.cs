@@ -226,7 +226,6 @@ namespace Music_Final_Project
             this.LyricsTextBox.TabIndex = 11;
             this.LyricsTextBox.Text = "";
             this.LyricsTextBox.WordWrap = false;
-            this.LyricsTextBox.SelectionAlignment = HorizontalAlignment.Center;
             // 
             // Form1
             // 
@@ -247,6 +246,7 @@ namespace Music_Final_Project
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SongListBindingSource)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion

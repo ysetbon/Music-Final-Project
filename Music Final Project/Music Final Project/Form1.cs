@@ -44,7 +44,7 @@ namespace Music_Final_Project
         {
             InitializeComponent();
             InitializeSongListSelection();
-
+            LyricsTextBox.SelectionAlignment = HorizontalAlignment.Center;
             // 
             // Chord Buttons
             // 
@@ -119,6 +119,11 @@ namespace Music_Final_Project
                 SwitchChordTimer.Start();
                 TillNextTimer.Start();
             }
+            else
+            {
+                MessageBox.Show("Please choose a song!", "No song chosen",
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
         private void TillNextTimer_Tick(object sender, EventArgs e)
@@ -180,7 +185,7 @@ namespace Music_Final_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Play();
         }
 
         private void SongList_SelectedIndexChanged(object sender, EventArgs e)
