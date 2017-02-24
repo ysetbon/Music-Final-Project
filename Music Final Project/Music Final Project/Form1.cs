@@ -17,6 +17,7 @@ namespace Music_Final_Project
 {
     public partial class Form1 : Form
     {
+        BindingList<Song> m_SongList = new BindingList<Song>() { new Song(null, "The Chainsmokers & Coldplay:Something Just Like This") };
         Queue<ChordToShow> m_ChordQueue;
         ChordToShow m_Current;
         int m_TimeElapsed;
@@ -40,6 +41,7 @@ namespace Music_Final_Project
         public Form1()
         {
             InitializeComponent();
+            InitializeSongListSelection();
 
             // 
             // Chord Buttons
@@ -57,6 +59,20 @@ namespace Music_Final_Project
                 newButton.MouseUp += (sender, EventArgs) => { ChordKeyUp(sender, EventArgs, newButton.ButtonChord); };
                 this.panel1.Controls.Add(newButton);
             }
+        }
+
+        /// <summary>
+        /// Initializes the song selection list box
+        /// </summary>
+        private void InitializeSongListSelection()
+        {
+            SongListBindingSource.DataSource = this.m_SongList;
+            SongList.ClearSelected();
+            SongList.SelectedIndexChanged += new System.EventHandler(this.SongList_SelectedIndexChanged);
+
+            SongList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            SongList.MeasureItem += lst_MeasureItem;
+            SongList.DrawItem += lst_DrawItem;
         }
 
         private void LoadQueue(Queue<ChordToShow> i_ChordQueue)
@@ -163,6 +179,16 @@ namespace Music_Final_Project
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SongList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (SongList.SelectedIndex != -1)
+            {
+                Song selectedSong = SongList.SelectedItem as Song;
+                //LoadQueue(new Queue<ChordToShow>(selectedSong.SongChords));
+                LyricsTextBox.Text = LyricsGetter.GetLyricsForSong(selectedSong.SongName);
+            }
         }
     }
 }

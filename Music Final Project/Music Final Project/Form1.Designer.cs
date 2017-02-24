@@ -44,11 +44,14 @@ namespace Music_Final_Project
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.SongList = new System.Windows.Forms.ListBox();
+            this.SongListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.LyricsTextBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SongListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -174,20 +177,11 @@ namespace Music_Final_Project
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.listBox1);
+            this.panel2.Controls.Add(this.SongList);
             this.panel2.Location = new System.Drawing.Point(820, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(221, 484);
             this.panel2.TabIndex = 10;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(-2, 78);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(221, 404);
-            this.listBox1.TabIndex = 0;
             // 
             // label3
             // 
@@ -204,12 +198,43 @@ namespace Music_Final_Project
             this.label3.Text = "Choose a song:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // SongList
+            // 
+            this.SongList.DataSource = this.SongListBindingSource;
+            this.SongList.DisplayMember = "SongName";
+            this.SongList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.SongList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.SongList.FormattingEnabled = true;
+            this.SongList.ItemHeight = 25;
+            this.SongList.Location = new System.Drawing.Point(-2, 78);
+            this.SongList.Name = "SongList";
+            this.SongList.Size = new System.Drawing.Size(221, 404);
+            this.SongList.TabIndex = 0;
+            // 
+            // SongListBindingSource
+            // 
+            this.SongListBindingSource.DataSource = typeof(Music_Final_Project.Scripts.Song);
+            // 
+            // LyricsTextBox
+            // 
+            this.LyricsTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LyricsTextBox.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LyricsTextBox.Location = new System.Drawing.Point(1, 484);
+            this.LyricsTextBox.Name = "LyricsTextBox";
+            this.LyricsTextBox.ReadOnly = true;
+            this.LyricsTextBox.Size = new System.Drawing.Size(1040, 333);
+            this.LyricsTextBox.TabIndex = 11;
+            this.LyricsTextBox.Text = "";
+            this.LyricsTextBox.WordWrap = false;
+            this.LyricsTextBox.SelectionAlignment = HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.ClientSize = new System.Drawing.Size(1040, 484);
+            this.ClientSize = new System.Drawing.Size(1040, 819);
+            this.Controls.Add(this.LyricsTextBox);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -220,11 +245,23 @@ namespace Music_Final_Project
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SongListBindingSource)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
+
+        private void lst_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            e.ItemHeight = (int)e.Graphics.MeasureString(SongList.Items[e.Index].ToString(), SongList.Font, SongList.Width).Height;
+        }
+
+        private void lst_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            e.DrawFocusRectangle();
+            e.Graphics.DrawString(SongList.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
+        }
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -238,8 +275,10 @@ namespace Music_Final_Project
         private Button button1;
         private Panel panel1;
         private Panel panel2;
-        private ListBox listBox1;
+        private ListBox SongList;
         private Label label3;
+        private BindingSource SongListBindingSource;
+        private RichTextBox LyricsTextBox;
     }
 }
 
