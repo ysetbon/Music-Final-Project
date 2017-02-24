@@ -51,7 +51,7 @@ namespace Music_Final_Project
             for (int i = 0; i < this.m_ChordList.Count; i++)
             {
                 ChordButton newButton = new ChordButton(m_ChordList[i]);
-                newButton.Location = new System.Drawing.Point(29 + i * 90, 381);
+                newButton.Location = new System.Drawing.Point(29 + i * 90, 300);
                 newButton.Name = m_ChordList[i].ToHumanReadableString();
                 newButton.Size = new System.Drawing.Size(70, 76);
                 newButton.TabIndex = 0;
