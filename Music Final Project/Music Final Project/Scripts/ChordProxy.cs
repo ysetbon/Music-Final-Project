@@ -13,6 +13,9 @@ namespace Music_Final_Project.Scripts
         private Note[] ChordNotes {get; set;}
         private string ChordName { get; set;}
 
+        public ChordProxy(string chordAsString)
+            : base(chordAsString) { }
+    
         public ChordProxy(Note[] i_Notes, string i_ChordName = "")
             : base(getChordForBaseClass(i_Notes))
         {
