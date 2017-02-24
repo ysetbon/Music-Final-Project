@@ -29,6 +29,8 @@ namespace Music_Final_Project
             E = (64, 67, 71)
             D = (62, 66, 69)
             */
+
+        //David: were is the chord I told you about => new Note[] { new Note(54), new Note(58), new Note(62)}
         readonly List<ChordProxy> m_ChordList = new List<ChordProxy> { new ChordProxy(new Note[] { new Note(57), new Note(60), new Note(64)}), 
                                                     new ChordProxy(new Note[] { new Note(59), new Note(62), new Note(66)}), 
                                                     new ChordProxy(new Note[] { new Note(60), new Note(64), new Note(67)}), 
