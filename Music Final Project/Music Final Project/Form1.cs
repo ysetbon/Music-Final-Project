@@ -42,10 +42,14 @@ namespace Music_Final_Project
                                                         {"Q",0}, {"W",1}, {"E",2}, {"R",3}, {"T",4}, {"Y",5}, {"U",6}, 
                                                         {"A",7}, {"S",8}, {"D",9}, {"F",10}, {"G",11}, {"H",12}, {"J",13}};
 
-        private ChordButton[] chordButtons = new ChordButton[14];
-                                                     
+        private bool[] m_IsPressed = new bool[270];
 
-        //readonly List<string> m_ChordNames = new List<string> {"Am", "F", }
+        private ChordButton[] chordButtons = new ChordButton[14];
+
+        private OutputDevice outDevice;
+
+        private int outDeviceID = 0;
+
 
        
 
@@ -78,8 +82,11 @@ namespace Music_Final_Project
                 chordButtons[i].UseVisualStyleBackColor = true;
                 ChordButton cb = chordButtons[i];
                 chordButtons[i].MouseDown += (sender, EventArgs) => { ChordKeyDown(sender, EventArgs, cb.ButtonChord); };
+                chordButtons[i].KeyDown += keyboardButtonDown;
                 chordButtons[i].MouseUp += (sender, EventArgs) => { ChordKeyUp(sender, EventArgs, cb.ButtonChord); };
+                chordButtons[i].KeyUp += keyboardButtonUp;
                 this.panel1.Controls.Add(chordButtons[i]);
+                chordButtons[i].BringToFront();
                 j++;
             }
             
@@ -104,12 +111,21 @@ namespace Music_Final_Project
             m_ChordQueue = i_ChordQueue;
         }
 
-        //TODO: Why doesn't this work?
-        private void keyboardClick(object sender, KeyEventArgs e)
+        private void keyboardButtonDown(object sender, KeyEventArgs e)
+        {
+            if (keyButtons.ContainsKey(e.KeyCode.ToString()) && !m_IsPressed[e.KeyValue])
+            {
+                m_IsPressed[e.KeyValue] = true;
+                ChordKeyDown(sender, e, chordButtons[keyButtons[e.KeyCode.ToString()]].ButtonChord);
+            }
+        }
+
+        private void keyboardButtonUp(object sender, KeyEventArgs e)
         {
             if (keyButtons.ContainsKey(e.KeyCode.ToString()))
             {
-                chordButtons[keyButtons[e.KeyCode.ToString()]].PerformClick();
+                m_IsPressed[e.KeyValue] = false;
+                ChordKeyUp(sender, e, chordButtons[keyButtons[e.KeyCode.ToString()]].ButtonChord);
             }
         }
 
@@ -162,10 +178,6 @@ namespace Music_Final_Project
             int time = m_TimeElapsed - TillNextTimer.Interval;
             CountDown.Text = (time > 0)? time.ToString() : "0";
         }
-
-        private OutputDevice outDevice;
-
-        private int outDeviceID = 0;
 
         protected override void OnLoad(EventArgs e)
         {
