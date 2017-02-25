@@ -22,23 +22,27 @@ namespace Music_Final_Project
         ChordToShow m_Current;
         int m_TimeElapsed;
          
-        readonly List<ChordProxy> m_MajorChords = new List<ChordProxy> 
+        readonly List<ChordProxy> m_Chords = new List<ChordProxy> 
                                                     { new ChordProxy("A4maj"),
                                                       new ChordProxy("B4maj"),
                                                       new ChordProxy("C4maj"),
                                                       new ChordProxy("D4maj"),
                                                       new ChordProxy("E4maj"),
                                                       new ChordProxy("F4maj"),
-                                                      new ChordProxy("G4maj")};
-
-        readonly List<ChordProxy> m_MinorChords = new List<ChordProxy> 
-                                                    { new ChordProxy("A4min"),
+                                                      new ChordProxy("G4maj"),
+                                                      new ChordProxy("A4min"),
                                                       new ChordProxy("B4min"),
                                                       new ChordProxy("C4min"),
                                                       new ChordProxy("D4min"),
                                                       new ChordProxy("E4min"),
                                                       new ChordProxy("F4min"),
                                                       new ChordProxy("G4min")};
+
+        readonly Dictionary<string,int> keyButtons = new Dictionary<string,int> {
+                                                        {"Q",0}, {"W",1}, {"E",2}, {"R",3}, {"T",4}, {"Y",5}, {"U",6}, 
+                                                        {"A",7}, {"S",8}, {"D",9}, {"F",10}, {"G",11}, {"H",12}, {"J",13}};
+
+        private ChordButton[] chordButtons = new ChordButton[14];
                                                      
 
         //readonly List<string> m_ChordNames = new List<string> {"Am", "F", }
@@ -50,35 +54,33 @@ namespace Music_Final_Project
             InitializeComponent();
             InitializeSongListSelection();
             LyricsTextBox.SelectionAlignment = HorizontalAlignment.Center;
+            
             // 
             // Chord Buttons
             // 
-            for (int i = 0; i < this.m_MajorChords.Count; i++)
+            string minor = "";
+            int height = 350;
+            int j = 0;
+            for (int i = 0; i < m_Chords.Count; i++)
             {
-                ChordButton newButton = new ChordButton(m_MajorChords[i]);
-                newButton.Location = new System.Drawing.Point(20 + i * 80, 350);
-                newButton.Name = m_MajorChords[i].ToHumanReadableString();
-                newButton.Size = new System.Drawing.Size(60, 46);
-                newButton.TabIndex = 0;
-                newButton.Text = Char.ConvertFromUtf32(65 + i).ToString();
-                newButton.UseVisualStyleBackColor = true;
-                newButton.MouseDown += (sender, EventArgs) => { ChordKeyDown(sender, EventArgs, newButton.ButtonChord); };
-                newButton.MouseUp += (sender, EventArgs) => { ChordKeyUp(sender, EventArgs, newButton.ButtonChord); };
-                this.panel1.Controls.Add(newButton);
-            }
-
-            for (int i = 0; i < this.m_MinorChords.Count; i++)
-            {
-                ChordButton newButton = new ChordButton(m_MinorChords[i]);
-                newButton.Location = new System.Drawing.Point(20 + i * 80, 300);
-                newButton.Name = m_MinorChords[i].ToHumanReadableString();
-                newButton.Size = new System.Drawing.Size(60, 46);
-                newButton.TabIndex = 0;
-                newButton.Text = Char.ConvertFromUtf32(65 + i).ToString() + "m" ;
-                newButton.UseVisualStyleBackColor = true;
-                newButton.MouseDown += (sender, EventArgs) => { ChordKeyDown(sender, EventArgs, newButton.ButtonChord); };
-                newButton.MouseUp += (sender, EventArgs) => { ChordKeyUp(sender, EventArgs, newButton.ButtonChord); };
-                this.panel1.Controls.Add(newButton);
+                if (i == 7)
+                {
+                    minor = "m";
+                    height = 300;
+                    j = 0;
+                }
+                chordButtons[i] = new ChordButton(m_Chords[i]);
+                chordButtons[i].Location = new System.Drawing.Point(20 + j * 80, height);
+                chordButtons[i].Name = m_Chords[i].ToHumanReadableString();
+                chordButtons[i].Size = new System.Drawing.Size(60, 46);
+                chordButtons[i].TabIndex = 0;
+                chordButtons[i].Text = Char.ConvertFromUtf32(65 + j).ToString() + minor;
+                chordButtons[i].UseVisualStyleBackColor = true;
+                ChordButton cb = chordButtons[i];
+                chordButtons[i].MouseDown += (sender, EventArgs) => { ChordKeyDown(sender, EventArgs, cb.ButtonChord); };
+                chordButtons[i].MouseUp += (sender, EventArgs) => { ChordKeyUp(sender, EventArgs, cb.ButtonChord); };
+                this.panel1.Controls.Add(chordButtons[i]);
+                j++;
             }
             
         }
@@ -100,6 +102,15 @@ namespace Music_Final_Project
         private void LoadQueue(Queue<ChordToShow> i_ChordQueue)
         {
             m_ChordQueue = i_ChordQueue;
+        }
+
+        //TODO: Why doesn't this work?
+        private void keyboardClick(object sender, KeyEventArgs e)
+        {
+            if (keyButtons.ContainsKey(e.KeyCode.ToString()))
+            {
+                chordButtons[keyButtons[e.KeyCode.ToString()]].PerformClick();
+            }
         }
 
         public void ChordSwitch(Object myObject, EventArgs myEventArgs)
