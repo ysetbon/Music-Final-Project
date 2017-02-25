@@ -60,7 +60,7 @@ namespace Music_Final_Project
                 newButton.Name = m_MajorChords[i].ToHumanReadableString();
                 newButton.Size = new System.Drawing.Size(60, 46);
                 newButton.TabIndex = 0;
-                newButton.Text = newButton.Name;
+                newButton.Text = Char.ConvertFromUtf32(65 + i).ToString();
                 newButton.UseVisualStyleBackColor = true;
                 newButton.MouseDown += (sender, EventArgs) => { ChordKeyDown(sender, EventArgs, newButton.ButtonChord); };
                 newButton.MouseUp += (sender, EventArgs) => { ChordKeyUp(sender, EventArgs, newButton.ButtonChord); };
@@ -74,7 +74,7 @@ namespace Music_Final_Project
                 newButton.Name = m_MinorChords[i].ToHumanReadableString();
                 newButton.Size = new System.Drawing.Size(60, 46);
                 newButton.TabIndex = 0;
-                newButton.Text = newButton.Name;
+                newButton.Text = Char.ConvertFromUtf32(65 + i).ToString() + "m" ;
                 newButton.UseVisualStyleBackColor = true;
                 newButton.MouseDown += (sender, EventArgs) => { ChordKeyDown(sender, EventArgs, newButton.ButtonChord); };
                 newButton.MouseUp += (sender, EventArgs) => { ChordKeyUp(sender, EventArgs, newButton.ButtonChord); };
