@@ -43,6 +43,7 @@ namespace Music_Final_Project
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.recordButton = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.SongList = new System.Windows.Forms.ListBox();
@@ -87,9 +88,9 @@ namespace Music_Final_Project
             this.CurrentChord.AutoSize = true;
             this.CurrentChord.Font = new System.Drawing.Font("Microsoft Sans Serif", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.CurrentChord.Location = new System.Drawing.Point(11, 69);
-            this.CurrentChord.MinimumSize = new System.Drawing.Size(300, 300);
+            this.CurrentChord.MinimumSize = new System.Drawing.Size(300, 150);
             this.CurrentChord.Name = "CurrentChord";
-            this.CurrentChord.Size = new System.Drawing.Size(300, 300);
+            this.CurrentChord.Size = new System.Drawing.Size(300, 150);
             this.CurrentChord.TabIndex = 3;
             this.CurrentChord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -98,9 +99,9 @@ namespace Music_Final_Project
             this.NextChord.AutoSize = true;
             this.NextChord.Font = new System.Drawing.Font("Microsoft Sans Serif", 70F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.NextChord.Location = new System.Drawing.Point(505, 69);
-            this.NextChord.MinimumSize = new System.Drawing.Size(300, 300);
+            this.NextChord.MinimumSize = new System.Drawing.Size(300, 150);
             this.NextChord.Name = "NextChord";
-            this.NextChord.Size = new System.Drawing.Size(300, 300);
+            this.NextChord.Size = new System.Drawing.Size(300, 150);
             this.NextChord.TabIndex = 4;
             this.NextChord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -110,7 +111,7 @@ namespace Music_Final_Project
             this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(158)))), ((int)(((byte)(226)))));
-            this.label5.Location = new System.Drawing.Point(332, 191);
+            this.label5.Location = new System.Drawing.Point(334, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 38);
             this.label5.TabIndex = 5;
@@ -120,7 +121,7 @@ namespace Music_Final_Project
             // 
             this.CountDown.AutoSize = true;
             this.CountDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.CountDown.Location = new System.Drawing.Point(329, 245);
+            this.CountDown.Location = new System.Drawing.Point(331, 234);
             this.CountDown.MinimumSize = new System.Drawing.Size(149, 100);
             this.CountDown.Name = "CountDown";
             this.CountDown.Size = new System.Drawing.Size(149, 100);
@@ -136,8 +137,8 @@ namespace Music_Final_Project
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Enabled = false;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(360, 105);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(362, 59);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(83, 52);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -147,12 +148,12 @@ namespace Music_Final_Project
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.Location = new System.Drawing.Point(332, 42);
+            this.button1.Location = new System.Drawing.Point(331, 9);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 126);
+            this.button1.Size = new System.Drawing.Size(147, 112);
             this.button1.TabIndex = 8;
             this.button1.Text = "Play";
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -161,6 +162,7 @@ namespace Music_Final_Project
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.recordButton);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.CountDown);
@@ -174,6 +176,25 @@ namespace Music_Final_Project
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(820, 484);
             this.panel1.TabIndex = 9;
+            // 
+            // recordButton
+            // 
+            this.recordButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.recordButton.AutoSize = true;
+            this.recordButton.BackColor = System.Drawing.Color.White;
+            this.recordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordButton.ForeColor = System.Drawing.Color.Red;
+            this.recordButton.Location = new System.Drawing.Point(331, 131);
+            this.recordButton.Margin = new System.Windows.Forms.Padding(0);
+            this.recordButton.MaximumSize = new System.Drawing.Size(147, 49);
+            this.recordButton.MinimumSize = new System.Drawing.Size(147, 0);
+            this.recordButton.Name = "recordButton";
+            this.recordButton.Size = new System.Drawing.Size(147, 49);
+            this.recordButton.TabIndex = 9;
+            this.recordButton.Text = "●";
+            this.recordButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.recordButton.UseVisualStyleBackColor = false;
+            this.recordButton.CheckedChanged += new System.EventHandler(this.recordButton_CheckedChanged);
             // 
             // panel2
             // 
@@ -286,6 +307,7 @@ namespace Music_Final_Project
         private Label label3;
         private BindingSource SongListBindingSource;
         private RichTextBox LyricsTextBox;
+        private CheckBox recordButton;
     }
 }
 

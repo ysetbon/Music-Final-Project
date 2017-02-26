@@ -12,6 +12,7 @@ using NFugue.Theory;
 using Sanford.Multimedia.Midi;
 using Music_Final_Project.Scripts;
 using Sanford.Multimedia.Midi.UI;
+using System.Runtime.InteropServices;
 
 namespace Music_Final_Project
 {
@@ -21,7 +22,7 @@ namespace Music_Final_Project
         Queue<ChordToShow> m_ChordQueue;
         ChordToShow m_Current;
         int m_TimeElapsed;
-         
+
         readonly List<ChordProxy> m_Chords = new List<ChordProxy> 
                                                     { new ChordProxy("A4maj"),
                                                       new ChordProxy("B4maj"),
@@ -38,7 +39,7 @@ namespace Music_Final_Project
                                                       new ChordProxy("F4min"),
                                                       new ChordProxy("G4min")};
 
-        readonly Dictionary<string,int> keyButtons = new Dictionary<string,int> {
+        readonly Dictionary<string, int> keyButtons = new Dictionary<string, int> {
                                                         {"Q",0}, {"W",1}, {"E",2}, {"R",3}, {"T",4}, {"Y",5}, {"U",6}, 
                                                         {"A",7}, {"S",8}, {"D",9}, {"F",10}, {"G",11}, {"H",12}, {"J",13}};
 
@@ -51,30 +52,31 @@ namespace Music_Final_Project
         private int outDeviceID = 0;
 
 
-       
+
 
         public Form1()
         {
             InitializeComponent();
             InitializeSongListSelection();
             LyricsTextBox.SelectionAlignment = HorizontalAlignment.Center;
-            
+
             // 
             // Chord Buttons
             // 
             string minor = "";
-            int height = 350;
+            int height = 400;
             int j = 0;
             for (int i = 0; i < m_Chords.Count; i++)
             {
                 if (i == 7)
                 {
                     minor = "m";
-                    height = 300;
+                    height = 350;
                     j = 0;
                 }
+
                 chordButtons[i] = new ChordButton(m_Chords[i]);
-                chordButtons[i].Location = new System.Drawing.Point(20 + j * 80, height);
+                chordButtons[i].Location = new System.Drawing.Point(140 + j * 80, height);
                 chordButtons[i].Name = m_Chords[i].ToHumanReadableString();
                 chordButtons[i].Size = new System.Drawing.Size(60, 46);
                 chordButtons[i].TabIndex = 0;
@@ -89,7 +91,7 @@ namespace Music_Final_Project
                 chordButtons[i].BringToFront();
                 j++;
             }
-            
+
         }
 
         /// <summary>
@@ -137,7 +139,7 @@ namespace Music_Final_Project
             {
                 m_Current = m_ChordQueue.Dequeue();
                 CurrentChord.Text = m_Current.Chord;
-                NextChord.Text = (m_ChordQueue.Count > 0)? m_ChordQueue.Peek().Chord : "";
+                NextChord.Text = (m_ChordQueue.Count > 0) ? m_ChordQueue.Peek().Chord : "";
 
                 // Sets the timer interval to be till the next note.
                 SwitchChordTimer.Interval = m_Current.TimeTillNext;
@@ -176,12 +178,12 @@ namespace Music_Final_Project
         private void TillNextTimer_Tick(object sender, EventArgs e)
         {
             int time = m_TimeElapsed - TillNextTimer.Interval;
-            CountDown.Text = (time > 0)? time.ToString() : "0";
+            CountDown.Text = (time > 0) ? time.ToString() : "0";
         }
 
         protected override void OnLoad(EventArgs e)
         {
-            if(OutputDevice.DeviceCount == 0)
+            if (OutputDevice.DeviceCount == 0)
             {
                 MessageBox.Show("No MIDI output devices available.", "Error!",
                     MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -194,7 +196,7 @@ namespace Music_Final_Project
                 {
                     outDevice = new OutputDevice(outDeviceID);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error!",
                         MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -238,6 +240,27 @@ namespace Music_Final_Project
                 Song selectedSong = SongList.SelectedItem as Song;
                 //LoadQueue(new Queue<ChordToShow>(selectedSong.SongChords));
                 LyricsTextBox.Text = LyricsGetter.GetLyricsForSong(selectedSong.SongName);
+            }
+        }
+
+        [DllImport("winmm.dll", EntryPoint = "mciSendStringA", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        private static extern int record(string lpstrCommand, string lpstrReturnString, int uReturnLength, int hwndCallback);
+
+        private void recordButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (recordButton.Checked)
+            {
+                recordButton.Text = "▌▌";
+                recordButton.ForeColor = System.Drawing.Color.Black;
+                record("open new Type waveaudio Alias recsound", "", 0, 0);
+                record("record recsound", "", 0, 0);   
+            }
+            else
+            {
+                recordButton.Text = "●";
+                recordButton.ForeColor = System.Drawing.Color.Red;
+                record("save recsound d:\\mic.wav", "", 0, 0);
+                record("close recsound", "", 0, 0);  
             }
         }
     }
