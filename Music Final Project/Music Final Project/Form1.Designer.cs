@@ -246,11 +246,11 @@ namespace Music_Final_Project
             // 
             this.LyricsTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LyricsTextBox.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LyricsTextBox.Location = new System.Drawing.Point(1, 484);
+            this.LyricsTextBox.Location = new System.Drawing.Point(-12, 476);
             this.LyricsTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LyricsTextBox.Name = "LyricsTextBox";
             this.LyricsTextBox.ReadOnly = true;
-            this.LyricsTextBox.Size = new System.Drawing.Size(1040, 333);
+            this.LyricsTextBox.Size = new System.Drawing.Size(1053, 269);
             this.LyricsTextBox.TabIndex = 11;
             this.LyricsTextBox.Text = "";
             this.LyricsTextBox.WordWrap = false;

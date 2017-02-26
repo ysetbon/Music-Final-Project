@@ -243,7 +243,7 @@ namespace Music_Final_Project
             if (SongList.SelectedIndex != -1)
             {
                 Song selectedSong = SongList.SelectedItem as Song;
-                //LoadQueue(new Queue<ChordToShow>(selectedSong.SongChords));
+                LoadQueue(new Queue<ChordToShow>(selectedSong.SongChords));
                 LyricsTextBox.Text = LyricsGetter.GetLyricsForSong(selectedSong.SongName);
             }
         }
