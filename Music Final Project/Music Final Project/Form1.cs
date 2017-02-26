@@ -63,14 +63,14 @@ namespace Music_Final_Project
             // Chord Buttons
             // 
             string minor = "";
-            int height = 350;
+            int height = 300;
             int j = 0;
             for (int i = 0; i < m_Chords.Count; i++)
             {
                 if (i == 7)
                 {
                     minor = "m";
-                    height = 300;
+                    height = 350;
                     j = 0;
                 }
                 chordButtons[i] = new ChordButton(m_Chords[i]);
