@@ -20,10 +20,10 @@ namespace Music_Final_Project
     {
         BindingList<Song> m_SongList = new BindingList<Song>() { new Song(null, "The Chainsmokers & Coldplay:Something Just Like This"),
                                                                          new Song(new List<ChordToShow>()
-                                                                            {new ChordToShow(920,0,"Am"),
-                                                                             new ChordToShow(920,0,"F"),
-                                                                             new ChordToShow(920,0,"C"),
-                                                                             new ChordToShow(1240,0,"G")},
+                                                                            {new ChordToShow(920,"Am"),
+                                                                             new ChordToShow(920,"F"),
+                                                                             new ChordToShow(920,"C"),
+                                                                             new ChordToShow(1240,"G")},
                                                                             "Eagle Eye Cherry:Save Tonight")};
         Queue<ChordToShow> m_ChordQueue;
         ChordToShow m_Current;
@@ -288,6 +288,13 @@ namespace Music_Final_Project
                 CurrentChord.Text = "";
                 NextChord.Text = "";
                 CountDown.Text = "";
+
+                if (SongList.SelectedIndex != -1)
+                {
+                    Song selectedSong = SongList.SelectedItem as Song;
+                    LoadQueue(new Queue<ChordToShow>(selectedSong.SongChords));
+                }
+
                 button1.Text = "Play";
             }
         }
