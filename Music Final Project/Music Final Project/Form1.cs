@@ -22,7 +22,7 @@ namespace Music_Final_Project
                                                                             {new ChordToShow(920,0,"Am"),
                                                                              new ChordToShow(920,0,"F"),
                                                                              new ChordToShow(920,0,"C"),
-                                                                             new ChordToShow(1240,0,"Am")},
+                                                                             new ChordToShow(1240,0,"G")},
                                                                             "Eagle Eye Cherry:Save Tonight")};
         Queue<ChordToShow> m_ChordQueue;
         ChordToShow m_Current;
