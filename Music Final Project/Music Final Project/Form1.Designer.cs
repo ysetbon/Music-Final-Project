@@ -41,7 +41,7 @@ namespace Music_Final_Project
             this.SwitchChordTimer = new System.Windows.Forms.Timer(this.components);
             this.TillNextTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.recordButton = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -147,6 +147,7 @@ namespace Music_Final_Project
             // 
             // button1
             // 
+            this.button1.Appearance = System.Windows.Forms.Appearance.Button;
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -158,7 +159,7 @@ namespace Music_Final_Project
             this.button1.Text = "Play";
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.CheckedChanged += new System.EventHandler(this.button1_CheckedChanged);
             // 
             // panel1
             // 
@@ -189,7 +190,7 @@ namespace Music_Final_Project
             this.recordButton.MaximumSize = new System.Drawing.Size(147, 49);
             this.recordButton.MinimumSize = new System.Drawing.Size(147, 0);
             this.recordButton.Name = "recordButton";
-            this.recordButton.Size = new System.Drawing.Size(147, 49);
+            this.recordButton.Size = new System.Drawing.Size(147, 48);
             this.recordButton.TabIndex = 9;
             this.recordButton.Text = "●";
             this.recordButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -300,7 +301,7 @@ namespace Music_Final_Project
         private System.Windows.Forms.Timer SwitchChordTimer;
         private System.Windows.Forms.Timer TillNextTimer;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Button button1;
+        private CheckBox button1;
         private Panel panel1;
         private Panel panel2;
         private ListBox SongList;

@@ -80,8 +80,9 @@ namespace Music_Final_Project
                 chordButtons[i].Name = m_Chords[i].ToHumanReadableString();
                 chordButtons[i].Size = new System.Drawing.Size(60, 46);
                 chordButtons[i].TabIndex = 0;
+                chordButtons[i].Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                chordButtons[i].BackColor = System.Drawing.Color.White;
                 chordButtons[i].Text = Char.ConvertFromUtf32(65 + j).ToString() + minor;
-                chordButtons[i].UseVisualStyleBackColor = true;
                 ChordButton cb = chordButtons[i];
                 chordButtons[i].MouseDown += (sender, EventArgs) => { ChordKeyDown(sender, EventArgs, cb.ButtonChord); };
                 chordButtons[i].KeyDown += keyboardButtonDown;
@@ -149,7 +150,7 @@ namespace Music_Final_Project
             }
         }
 
-        public void Play()
+        public bool Play()
         {
             if (m_ChordQueue != null && m_ChordQueue.Count > 0)
             {
@@ -167,11 +168,14 @@ namespace Music_Final_Project
 
                 SwitchChordTimer.Start();
                 TillNextTimer.Start();
+
+                return true;
             }
             else
             {
                 MessageBox.Show("Please choose a song!", "No song chosen",
                         MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
             }
         }
 
@@ -228,11 +232,6 @@ namespace Music_Final_Project
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Play();
-        }
-
         private void SongList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (SongList.SelectedIndex != -1)
@@ -261,6 +260,29 @@ namespace Music_Final_Project
                 recordButton.ForeColor = System.Drawing.Color.Red;
                 record("save recsound d:\\mic.wav", "", 0, 0);
                 record("close recsound", "", 0, 0);  
+            }
+        }
+
+        private void button1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (button1.Checked)
+            {
+                if (Play())
+                {
+                    button1.Text = "Stop";
+                }
+                else
+                {
+                    button1.Checked = false;
+                }
+            }
+            else
+            {
+                SwitchChordTimer.Stop();
+                CurrentChord.Text = "";
+                NextChord.Text = "";
+                CountDown.Text = "";
+                button1.Text = "Play";
             }
         }
     }
