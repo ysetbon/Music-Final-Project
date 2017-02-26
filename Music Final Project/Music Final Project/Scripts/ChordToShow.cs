@@ -15,5 +15,12 @@ namespace Music_Final_Project.Scripts
         public int TimeTillNext { get; set; }
 
         public string Chord { get; set; }
+
+        public ChordToShow(int dur, int timeTillNext, string chord)
+        {
+            this.Duration = dur;
+            this.TimeTillNext = timeTillNext;
+            this.Chord = chord;
+        }
     }
 }

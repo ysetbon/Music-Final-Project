@@ -17,7 +17,13 @@ namespace Music_Final_Project
 {
     public partial class Form1 : Form
     {
-        BindingList<Song> m_SongList = new BindingList<Song>() { new Song(null, "The Chainsmokers & Coldplay:Something Just Like This") };
+        BindingList<Song> m_SongList = new BindingList<Song>() { new Song(null, "The Chainsmokers & Coldplay:Something Just Like This"),
+                                                                 new Song(new List<ChordToShow>()
+                                                                            {new ChordToShow(920,0,"Am"),
+                                                                             new ChordToShow(920,0,"F"),
+                                                                             new ChordToShow(920,0,"C"),
+                                                                             new ChordToShow(1240,0,"Am")},
+                                                                            "Eagle Eye Cherry:Save Tonight")};
         Queue<ChordToShow> m_ChordQueue;
         ChordToShow m_Current;
         int m_TimeElapsed;
@@ -42,7 +48,7 @@ namespace Music_Final_Project
                                                         {"Q",0}, {"W",1}, {"E",2}, {"R",3}, {"T",4}, {"Y",5}, {"U",6}, 
                                                         {"A",7}, {"S",8}, {"D",9}, {"F",10}, {"G",11}, {"H",12}, {"J",13}};
 
-        private bool[] m_IsPressed = new bool[270];
+        private bool[] m_IsPressed = new bool[270]; //why 270?
 
         private ChordButton[] chordButtons = new ChordButton[14];
 
