@@ -18,7 +18,13 @@ namespace Music_Final_Project
 {
     public partial class Form1 : Form
     {
-        BindingList<Song> m_SongList = new BindingList<Song>() { new Song(null, "The Chainsmokers & Coldplay:Something Just Like This") };
+        BindingList<Song> m_SongList = new BindingList<Song>() { new Song(null, "The Chainsmokers & Coldplay:Something Just Like This"),
+                                                                         new Song(new List<ChordToShow>()
+                                                                            {new ChordToShow(920,0,"Am"),
+                                                                             new ChordToShow(920,0,"F"),
+                                                                             new ChordToShow(920,0,"C"),
+                                                                             new ChordToShow(1240,0,"G")},
+                                                                            "Eagle Eye Cherry:Save Tonight")};
         Queue<ChordToShow> m_ChordQueue;
         ChordToShow m_Current;
         int m_TimeElapsed;
